@@ -1,19 +1,17 @@
 <?php
+
 /**
  * The header for our theme
- *
- * This is the template that displays all of the <head> section and everything up until <div id="content">
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
+ * 
  * @package Travel_onyx_systems
  */
 
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
+
 <head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
+	<meta charset="<?php bloginfo('charset'); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
@@ -21,39 +19,42 @@
 </head>
 
 <body <?php body_class(); ?>>
-<?php wp_body_open(); ?>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'tos' ); ?></a>
+	<?php wp_body_open(); ?>
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$tos_description = get_bloginfo( 'description', 'display' );
-			if ( $tos_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $tos_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
-
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'tos' ); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+	<header class="header">
+		<div class="header_background">
+			<div class="header_container">
+				<div class="header">
+					<div class="header__body">
+						<div class="header__logo">
+							<img src="./assets/image/Logo.png" alt="">
+						</div>
+						<div class="header__burger">
+							<span></span>
+						</div>
+						<nav class="header__menu">
+							<ul class="header__list">
+								<li><a class="header__link" href="">Home</a></li>
+								<li><a class="header__link" href="">About us</a></li>
+								<li><a class="header__link" href="">Destination</a></li>
+								<li><a class="header__link" href="">Tips</a></li>
+								<li><a class="header__link" href="">Contact</a></li>
+							</ul>
+						</nav>
+					</div>
+					<div class="header_content">
+						<h3>THE COUNTER: <span>70</span> Countries <span>1036</span> Cities</h3>
+						<h1>Leave your mark on all
+							over the world</h1>
+						<div class="header_content__button ">
+							<a href="">Read More</a>
+						</div>
+					</div>
+					<div class="header_bottom">
+						<div class="header_bottom__text">Scroll Down to Continue</div>
+						<img src="./assets/image/header-arrow.png" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
