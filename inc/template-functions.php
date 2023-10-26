@@ -42,11 +42,13 @@ function tos_pingback_header()
 }
 add_action('wp_head', 'tos_pingback_header');
 
+/**
+ * Add header customizer fields.
+ */
 function tos_customize_custom_register($wp_customize)
 {
-	// Создаем новый раздел для кастомизации
 	$wp_customize->add_section('tos_custom_head_section', array(
-		'title' => __('header content'),
+		'title' => __('Header content'),
 		'priority' => 30,
 	));
 

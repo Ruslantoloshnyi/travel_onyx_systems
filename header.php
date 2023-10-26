@@ -33,13 +33,16 @@
 							<span></span>
 						</div>
 						<nav class="header__menu">
-							<ul class="header__list">
-								<li><a class="header__link" href="">Home</a></li>
-								<li><a class="header__link" href="">About us</a></li>
-								<li><a class="header__link" href="">Destination</a></li>
-								<li><a class="header__link" href="">Tips</a></li>
-								<li><a class="header__link" href="">Contact</a></li>
-							</ul>
+							<?php
+							wp_nav_menu([
+								'theme_location'  => 'menu-1',
+								'menu'            => '',
+								'container'       => 'ul',
+								'container_class' => '',
+								'container_id'    => '',
+								'menu_class'      => 'header__list',
+							]);
+							?>
 						</nav>
 					</div>
 					<div class="header_content">
