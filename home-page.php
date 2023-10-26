@@ -57,7 +57,31 @@ Template Post Type: page
                     </div>
                     <div class="aside_wrapper">
                         <div class="front_aside_slider carousel shadow">
-                            <div class="front_aside_slider_block">
+                            <?php
+                            $args = array(
+                                'post_type' => 'post',
+                                'posts_per_page' => 3,
+                                'orderby' => 'comment_count',
+                                'order' => 'DESC'
+                            );
+
+                            $popular_posts = new WP_Query($args);
+
+                            if ($popular_posts->have_posts()) :
+                                while ($popular_posts->have_posts()) : $popular_posts->the_post();
+                            ?>
+                                    <div class="front_aside_slider_block">
+                                        <?php the_post_thumbnail('full', ['class' => 'image-cov']) ?>
+                                        <div class="front_aside_slider_block__date"><?php the_date('F j, Y') ?></div>
+                                        <div class="front_aside_slider_block__name"><?php the_title(); ?></div>
+                                    </div>
+                            <?php
+                                endwhile;
+                                wp_reset_postdata();
+                            endif;
+                            ?>
+
+                            <!-- <div class="front_aside_slider_block">
                                 <img class="image-cov" src="./assets/image/aside-slider.jpg" alt="">
                                 <div class="front_aside_slider_block__date">September 17, 2018 - Tips & Tricks
                                 </div>
@@ -77,7 +101,7 @@ Template Post Type: page
                                 </div>
                                 <div class="front_aside_slider_block__name">Finding Love & home in Tbilisi, Georgia
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="aside_wrapper">
