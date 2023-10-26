@@ -27,7 +27,7 @@
 				<div class="header">
 					<div class="header__body">
 						<div class="header__logo">
-							<img src="./assets/image/Logo.png" alt="">
+							<?php the_custom_logo(); ?>
 						</div>
 						<div class="header__burger">
 							<span></span>
@@ -43,16 +43,22 @@
 						</nav>
 					</div>
 					<div class="header_content">
-						<h3>THE COUNTER: <span>70</span> Countries <span>1036</span> Cities</h3>
-						<h1>Leave your mark on all
-							over the world</h1>
+						<h3><?php echo get_theme_mod('tos_custom_head_code', ''); ?>
+						</h3>
+						<h1><?php echo get_theme_mod('tos_custom_subhead_code', ''); ?></h1>
 						<div class="header_content__button ">
-							<a href="">Read More</a>
+							<a href=""><?php echo get_theme_mod('tos_custom_button_code', ''); ?></a>
 						</div>
 					</div>
 					<div class="header_bottom">
-						<div class="header_bottom__text">Scroll Down to Continue</div>
-						<img src="./assets/image/header-arrow.png" alt="">
+						<div class="header_bottom__text"><?php echo get_theme_mod('tos_custom_bottom_code', ''); ?></div>
+						<?php
+						$image_url = get_theme_mod('tos_custom_image', '');
+						if ($image_url)
+						{
+							echo '<img src="' . esc_url($image_url) . '">';
+						}
+						?>
 					</div>
 				</div>
 			</div>
