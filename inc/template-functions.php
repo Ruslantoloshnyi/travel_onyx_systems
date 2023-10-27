@@ -121,3 +121,18 @@ add_image_size('custom-recent', 100, 80, true);
 add_image_size('custom-posts', 780, 450, true);
 add_image_size('custom-insta', 261, 296, true);
 add_image_size('custom-social', 32, 32, true);
+
+/**
+ * Add option page.
+ */
+if (function_exists('acf_add_options_page'))
+{
+
+	acf_add_options_page(array(
+		'page_title'    => 'Global field',
+		'menu_title'    => 'Global fields',
+		'menu_slug'     => 'theme-general-settings',
+		'capability'    => 'edit_posts',
+		'redirect'      => false
+	));
+};
