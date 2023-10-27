@@ -513,12 +513,10 @@ Template Post Type: page
                         </div>
                         <div class="grid-item12">
                             <div class="front_content_banner">
-                                <img class="image-cov" src="./assets/image/front-banner.jpg" alt="">
-                                <div class="front_content_banner__text">Want <span>Me to Purchase</span> Something
-                                    For
-                                    You That isn’t available in your Country?</div>
+                                <?php echo wp_get_attachment_image(get_field('banner_image'), 'custom-posts', 'false', ['class' => 'image-cov']); ?>
+                                <div class="front_content_banner__text"><?php echo get_field('banner_text'); ?></div>
                                 <div class="front_content_banner__button">
-                                    <a class="button" href="">Place Order</a>
+                                    <a class="button" href="<?php echo get_field('banner_button_url'); ?>"><?php echo get_field('banner_button_value'); ?></a>
                                 </div>
                             </div>
                         </div>
