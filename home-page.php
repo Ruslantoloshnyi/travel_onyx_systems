@@ -120,50 +120,38 @@ Template Post Type: page
                         <div class="front_aside_posts__heading front-card front-head shadow">Get In Tuch</div>
                     </div>
                     <div class="front_aside_social">
-                        <a href="#">
+                        <a href="<?php echo get_field('social_facebook_link'); ?>">
                             <div class="front_aside_social_link">
                                 <div class="front_aside_social_link__image">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="32" viewBox="0 0 16 32" fill="none">
-                                        <path d="M10.6667 10.6667V7.46667C10.6667 6.08 10.9867 5.33333 13.2267 5.33333H16V0H11.7333C6.4 0 4.26667 3.52 4.26667 7.46667V10.6667H0V16H4.26667V32H10.6667V16H15.36L16 10.6667H10.6667Z" fill="#FFFCFC" />
-                                    </svg>
+                                    <?php echo wp_get_attachment_image(get_field('social_facebook_image'), 'custom-social'); ?>
                                 </div>
-                                <div class="front_aside_social_link__text">65.5K<br>
-                                    Likes</div>
+                                <div class="front_aside_social_link__text"><?php echo get_field('social_facebook_text'); ?></div>
                             </div>
                         </a>
-                        <a href="">
+                        <a href="<?php echo get_field('social_twitter_link'); ?>">
                             <div class="front_aside_social_link twitter-color">
                                 <div class="front_aside_social_link__image">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="32" viewBox="0 0 16 32" fill="none">
-                                        <path d="M10.6667 10.6667V7.46667C10.6667 6.08 10.9867 5.33333 13.2267 5.33333H16V0H11.7333C6.4 0 4.26667 3.52 4.26667 7.46667V10.6667H0V16H4.26667V32H10.6667V16H15.36L16 10.6667H10.6667Z" fill="#FFFCFC" />
-                                    </svg>
+                                    <?php echo wp_get_attachment_image(get_field('social_twitter_image'), 'custom-social'); ?>
                                 </div>
-                                <div class="front_aside_social_link__text">65.5K<br>
-                                    Likes</div>
+                                <div class="front_aside_social_link__text"><?php echo get_field('social_twitter_text'); ?></div>
                             </div>
                         </a>
                     </div>
                     <div class="front_aside_social">
-                        <a href="#">
+                        <a href="<?php echo get_field('social_youtube_link'); ?>">
                             <div class="front_aside_social_link youtube-color">
                                 <div class="front_aside_social_link__image">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="32" viewBox="0 0 16 32" fill="none">
-                                        <path d="M10.6667 10.6667V7.46667C10.6667 6.08 10.9867 5.33333 13.2267 5.33333H16V0H11.7333C6.4 0 4.26667 3.52 4.26667 7.46667V10.6667H0V16H4.26667V32H10.6667V16H15.36L16 10.6667H10.6667Z" fill="#FFFCFC" />
-                                    </svg>
+                                    <?php echo wp_get_attachment_image(get_field('social_youtube_image'), 'custom-social'); ?>
                                 </div>
-                                <div class="front_aside_social_link__text">65.5K<br>
-                                    Likes</div>
+                                <div class="front_aside_social_link__text"><?php echo get_field('social_youtube_text'); ?></div>
                             </div>
                         </a>
-                        <a href="">
+                        <a href="<?php echo get_field('social_instagramm_link'); ?>">
                             <div class="front_aside_social_link inst-color">
                                 <div class="front_aside_social_link__image">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="32" viewBox="0 0 16 32" fill="none">
-                                        <path d="M10.6667 10.6667V7.46667C10.6667 6.08 10.9867 5.33333 13.2267 5.33333H16V0H11.7333C6.4 0 4.26667 3.52 4.26667 7.46667V10.6667H0V16H4.26667V32H10.6667V16H15.36L16 10.6667H10.6667Z" fill="#FFFCFC" />
-                                    </svg>
+                                    <?php echo wp_get_attachment_image(get_field('social_instagramm_image'), 'custom-social'); ?>
                                 </div>
-                                <div class="front_aside_social_link__text">65.5K<br>
-                                    Likes</div>
+                                <div class="front_aside_social_link__text"><?php echo get_field('social_instagramm_value'); ?></div>
                             </div>
                         </a>
                     </div>

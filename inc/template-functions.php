@@ -120,3 +120,4 @@ add_image_size('custom-slider', 400, 270, true);
 add_image_size('custom-recent', 100, 80, true);
 add_image_size('custom-posts', 780, 450, true);
 add_image_size('custom-insta', 261, 296, true);
+add_image_size('custom-social', 32, 32, true);
