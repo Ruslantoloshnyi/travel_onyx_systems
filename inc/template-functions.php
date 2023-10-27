@@ -112,3 +112,11 @@ function tos_customize_custom_register($wp_customize)
 	)));
 }
 add_action('customize_register', 'tos_customize_custom_register');
+
+/**
+ * Add custom image size.
+ */
+add_image_size('custom-slider', 400, 270, true);
+add_image_size('custom-recent', 100, 80, true);
+add_image_size('custom-posts', 780, 450, true);
+add_image_size('custom-insta', 261, 296, true);

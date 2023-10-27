@@ -58,21 +58,21 @@ Template Post Type: page
                     <div class="aside_wrapper">
                         <div class="front_aside_slider carousel shadow">
                             <?php
-                            $args = array(
+                            $popular_posts_args = array(
                                 'post_type' => 'post',
                                 'posts_per_page' => 3,
                                 'orderby' => 'comment_count',
                                 'order' => 'DESC'
                             );
 
-                            $popular_posts = new WP_Query($args);
+                            $popular_posts = new WP_Query($popular_posts_args);
 
                             if ($popular_posts->have_posts()) :
                                 while ($popular_posts->have_posts()) : $popular_posts->the_post();
                             ?>
                                     <div class="front_aside_slider_block">
-                                        <?php the_post_thumbnail('full', ['class' => 'image-cov']) ?>
-                                        <div class="front_aside_slider_block__date"><?php the_date('F j, Y') ?></div>
+                                        <?php the_post_thumbnail('custom-slider', ['class' => 'image-cov']) ?>
+                                        <div class="front_aside_slider_block__date"><?php echo get_the_date('F j, Y') ?></div>
                                         <div class="front_aside_slider_block__name"><?php the_title(); ?></div>
                                     </div>
                             <?php
@@ -80,73 +80,41 @@ Template Post Type: page
                                 wp_reset_postdata();
                             endif;
                             ?>
-
-                            <!-- <div class="front_aside_slider_block">
-                                <img class="image-cov" src="./assets/image/aside-slider.jpg" alt="">
-                                <div class="front_aside_slider_block__date">September 17, 2018 - Tips & Tricks
-                                </div>
-                                <div class="front_aside_slider_block__name">Finding Love & home in Tbilisi, Georgia
-                                </div>
-                            </div>
-                            <div class="front_aside_slider_block">
-                                <img class="image-cov" src="./assets/image/aside-slider.jpg" alt="">
-                                <div class="front_aside_slider_block__date">September 17, 2018 - Tips & Tricks
-                                </div>
-                                <div class="front_aside_slider_block__name">Finding Love & home in Tbilisi, Georgia
-                                </div>
-                            </div>
-                            <div class="front_aside_slider_block">
-                                <img class="image-cov" src="./assets/image/aside-slider.jpg" alt="">
-                                <div class="front_aside_slider_block__date">September 17, 2018 - Tips & Tricks
-                                </div>
-                                <div class="front_aside_slider_block__name">Finding Love & home in Tbilisi, Georgia
-                                </div>
-                            </div> -->
                         </div>
                     </div>
                     <div class="aside_wrapper">
                         <div class="front_aside_posts__heading front-card front-head shadow">Recent Posts</div>
                     </div>
+
+
                     <div class="aside_wrapper">
-                        <div class="aside_wrapper">
-                            <div class="front_aside_recent">
-                                <img src="./assets/image/aside-recent-post.jpg" alt="">
-                                <div class="front_aside_recent_content">
-                                    <div class="front_aside_recent_content__date">September 17, 2018 - Tips &
-                                        Tricks
-                                    </div>
-                                    <div class="front_aside_recent_content__text">Finding Love & home in Tbilisi,
-                                        Georgia
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="aside_wrapper">
-                            <div class="front_aside_recent">
-                                <img src="./assets/image/aside-recent-post.jpg" alt="">
-                                <div class="front_aside_recent_content">
-                                    <div class="front_aside_recent_content__date">September 17, 2018 - Tips &
-                                        Tricks
-                                    </div>
-                                    <div class="front_aside_recent_content__text">Finding Love & home in Tbilisi,
-                                        Georgia
+                        <?php
+                        $args = array(
+                            'post_type'      => 'post',
+                            'posts_per_page' =>  3,
+                            'orderby'        => 'date',
+                            'order'          => 'DESC'
+                        );
+
+                        $recent_posts = new WP_Query($args);
+
+                        if ($recent_posts->have_posts()) :
+                            while ($recent_posts->have_posts()) : $recent_posts->the_post();
+                        ?>
+                                <div class="aside_wrapper">
+                                    <div class="front_aside_recent">
+                                        <?php the_post_thumbnail('custom-recent'); ?>
+                                        <div class="front_aside_recent_content">
+                                            <div class="front_aside_recent_content__date"><?php echo get_the_date('F j, Y') ?></div>
+                                            <div class="front_aside_recent_content__text"><?php the_title(); ?></div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="aside_wrapper">
-                            <div class="front_aside_recent">
-                                <img src="./assets/image/aside-recent-post.jpg" alt="">
-                                <div class="front_aside_recent_content">
-                                    <div class="front_aside_recent_content__date">September 17, 2018 - Tips &
-                                        Tricks
-                                    </div>
-                                    <div class="front_aside_recent_content__text">Finding Love & home in Tbilisi,
-                                        Georgia
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <?php
+                            endwhile;
+                            wp_reset_postdata();
+                        endif;
+                        ?>
                     </div>
                     <div class="aside_wrapper">
                         <div class="front_aside_posts__heading front-card front-head shadow">Get In Tuch</div>
