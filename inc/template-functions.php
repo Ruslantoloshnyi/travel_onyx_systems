@@ -136,3 +136,69 @@ if (function_exists('acf_add_options_page'))
 		'redirect'      => false
 	));
 };
+
+/**
+ * Add a destination post type.
+ */
+function tos_destination_post_type()
+{
+	$args = array(
+		'public' => true,
+		'show_in_rest' => true,
+		'label'  => 'Destination',
+		'supports' => array('title', 'editor', 'thumbnail', 'comments'),
+		'has_archive' => true,
+		'menu_position' => 5,
+
+	);
+	register_post_type('destination', $args);
+}
+add_action('init', 'tos_destination_post_type');
+
+/**
+ * Add a tips post type.
+ */
+function tos_tips_post_type()
+{
+	$args = array(
+		'public' => true,
+		'show_in_rest' => true,
+		'label'  => 'Tips',
+		'supports' => array('title', 'editor', 'thumbnail'),
+		'has_archive' => true,
+		'menu_position' => 5,
+
+	);
+	register_post_type('tips', $args);
+}
+add_action('init', 'tos_tips_post_type');
+
+/**
+ * Registed location taxonomy.
+ */
+function tos_create_location_taxonomy()
+{
+	$labels = array(
+		'name'              => 'Location',
+		'singular_name'     => 'location',
+		'search_items'      => 'Search location',
+		'all_items'         => 'All locations',
+		'edit_item'         => 'Edit location',
+		'update_item'       => 'Update location',
+		'add_new_item'      => 'Add new location',
+		'new_item_name'     => 'new location name',
+		'menu_name'         => 'Location'
+	);
+
+	$args = array(
+		'hierarchical'      => true,
+		'labels'            => $labels,
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'query_var'         => true,
+		'rewrite'           => array('slug' => 'location')
+	);
+
+	register_taxonomy('location', 'destination', $args);
+}
+add_action('init', 'tos_create_location_taxonomy');
