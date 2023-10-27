@@ -121,6 +121,8 @@ add_image_size('custom-recent', 100, 80, true);
 add_image_size('custom-posts', 780, 450, true);
 add_image_size('custom-insta', 261, 296, true);
 add_image_size('custom-social', 32, 32, true);
+add_image_size('custom-destination', 380, 360, true);
+add_image_size('custom-tips', 374, 221, true);
 
 /**
  * Add option page.
@@ -151,7 +153,7 @@ function tos_destination_post_type()
 		'menu_position' => 5,
 
 	);
-	register_post_type('destination', $args);
+	register_post_type('dest-cpt', $args);
 }
 add_action('init', 'tos_destination_post_type');
 
@@ -169,7 +171,7 @@ function tos_tips_post_type()
 		'menu_position' => 5,
 
 	);
-	register_post_type('tips', $args);
+	register_post_type('tips-cpt', $args);
 }
 add_action('init', 'tos_tips_post_type');
 
@@ -196,9 +198,9 @@ function tos_create_location_taxonomy()
 		'show_ui'           => true,
 		'show_admin_column' => true,
 		'query_var'         => true,
-		'rewrite'           => array('slug' => 'location')
+		'rewrite'           => array('slug' => 'local')
 	);
 
-	register_taxonomy('location', 'destination', $args);
+	register_taxonomy('local', 'dest-cpt', $args);
 }
 add_action('init', 'tos_create_location_taxonomy');
