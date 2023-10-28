@@ -49,7 +49,7 @@ get_header();
             if ($tips_posts->have_posts()) :
                 while ($tips_posts->have_posts()) : $tips_posts->the_post();
             ?>
-                    <div class="travel_posts_card">
+                    <div class="travel_posts_card hvr-float">
                         <div class="travel_posts_card_container">
                             <div class="travel_posts_card__image">
                                 <a href="<?php the_permalink(); ?>"> <?php the_post_thumbnail('custom-tips', ['class' => 'image-cov']) ?></a>
