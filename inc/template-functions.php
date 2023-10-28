@@ -43,10 +43,11 @@ function tos_pingback_header()
 add_action('wp_head', 'tos_pingback_header');
 
 /**
- * Add header customizer fields.
+ * Add customizer fields.
  */
 function tos_customize_custom_register($wp_customize)
 {
+	// header -----------------------------------------------
 	$wp_customize->add_section('tos_custom_head_section', array(
 		'title' => __('Header content'),
 		'priority' => 30,
@@ -110,6 +111,57 @@ function tos_customize_custom_register($wp_customize)
 		'label'   => __('Image', 'travel-onyx-systems'),
 		'description' => __('Download image', 'travel-onyx-systems'),
 	)));
+
+	//footer -----------------------------------------
+	$wp_customize->add_section('tos_custom_footer_section', array(
+		'title' => __('Footer'),
+		'priority' => 31,
+	));
+
+	$wp_customize->add_setting('tos_custom_footer_image', array(
+		'default' => '',
+		'sanitize_callback' => 'esc_url_raw',
+	));
+
+	$wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'tos_custom_footer_image', array(
+		'section' => 'tos_custom_footer_section',
+		'label'   => __('Image', 'travel-onyx-systems'),
+		'description' => __('Download image', 'travel-onyx-systems'),
+	)));
+
+	$wp_customize->add_setting('tos_custom_social_footer_image', array(
+		'default' => '',
+		'sanitize_callback' => 'esc_url_raw',
+	));
+
+	$wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'tos_custom_social_footer_image', array(
+		'section' => 'tos_custom_footer_section',
+		'label'   => __('Image', 'travel-onyx-systems'),
+		'description' => __('Download social image', 'travel-onyx-systems'),
+	)));
+
+	$wp_customize->add_setting('footer_social_link', array(
+		'default' => '',
+		'sanitize_callback' => 'esc_url_raw',
+	));
+
+	$wp_customize->add_control('footer_social_link', array(
+		'type' => 'url',
+		'section' => 'tos_custom_footer_section',
+		'label' => __('Footer social Link', 'travel-onyx-systems'),
+	));
+
+	$wp_customize->add_setting('footer_copyright', array(
+		'default' => '',
+		'sanitize_callback' => 'wp_kses_post',
+	));
+
+	$wp_customize->add_control('footer_copyright', array(
+		'type' => 'textarea',
+		'description' => __('add copyright text', 'travel-onyx-systems'),
+		'section' => 'tos_custom_footer_section',
+		'label' => __('Footer copyright', 'travel-onyx-systems'),
+	));
 }
 add_action('customize_register', 'tos_customize_custom_register');
 
@@ -204,3 +256,19 @@ function tos_create_location_taxonomy()
 	register_taxonomy('local', 'dest-cpt', $args);
 }
 add_action('init', 'tos_create_location_taxonomy');
+
+function custom_theme_widgets_init()
+{
+	register_sidebar(array(
+		'name' => __('Footer Content First', 'your-theme-textdomain'),
+		'id' => 'footer-content-first',
+		'description' => __('Widgets in this area will be shown in the first column of the footer.', 'your-theme-textdomain'),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '',
+		'after_title' => '',
+	));
+
+	// ... (остальные виджеты)
+}
+add_action('widgets_init', 'custom_theme_widgets_init');
