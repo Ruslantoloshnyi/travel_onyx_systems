@@ -50,7 +50,14 @@
 						</h3>
 						<h1><?php echo get_theme_mod('tos_custom_subhead_code', ''); ?></h1>
 						<div class="header_content__button ">
-							<a href=""><?php echo get_theme_mod('tos_custom_button_code', ''); ?></a>
+							<?php
+							$header_link = get_theme_mod('tos_custom_button_link', '');
+							if (!empty($header_link))
+							{
+								$link = esc_url($header_link);
+							}
+							?>
+							<a href="<?php echo $link; ?>"><?php echo get_theme_mod('tos_custom_button_code', ''); ?></a>
 						</div>
 					</div>
 					<div class="header_bottom">

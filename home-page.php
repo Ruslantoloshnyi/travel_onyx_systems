@@ -60,7 +60,7 @@ Template Post Type: page
                             <?php
                             $popular_posts_args = array(
                                 'post_type' => 'post',
-                                'posts_per_page' => 3,
+                                'posts_per_page' => 5,
                                 'orderby' => 'comment_count',
                                 'order' => 'DESC'
                             );
@@ -105,7 +105,7 @@ Template Post Type: page
                         ?>
                                 <div class="aside_wrapper">
                                     <div class="front_aside_recent">
-                                        <a href=""><?php the_post_thumbnail('custom-recent'); ?></a>
+                                        <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('custom-recent'); ?></a>
                                         <div class="front_aside_recent_content">
                                             <div class="front_aside_recent_content__date"><?php echo get_the_date('F j, Y') ?></div>
                                             <div class="front_aside_recent_content__text"><?php the_title(); ?></div>

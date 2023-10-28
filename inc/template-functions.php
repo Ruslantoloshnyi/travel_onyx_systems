@@ -89,6 +89,17 @@ function tos_customize_custom_register($wp_customize)
 		'description' => __('add button text', 'travel-onyx-systems'),
 	));
 
+	$wp_customize->add_setting('tos_custom_button_link', array(
+		'default' => '',
+		'sanitize_callback' => 'esc_url_raw',
+	));
+
+	$wp_customize->add_control('tos_custom_button_link', array(
+		'type' => 'url',
+		'section' => 'tos_custom_head_section',
+		'label' => __('Header button link', 'travel-onyx-systems'),
+	));
+
 	$wp_customize->add_setting('tos_custom_bottom_code', array(
 		'default' => '',
 		'sanitize_callback' => 'wp_kses_post',
@@ -200,9 +211,10 @@ function tos_destination_post_type()
 		'public' => true,
 		'show_in_rest' => true,
 		'label'  => 'Destination',
-		'supports' => array('title', 'editor', 'thumbnail', 'comments'),
+		'supports' => array('title', 'editor', 'thumbnail', 'comments',),
 		'has_archive' => true,
 		'menu_position' => 5,
+		'taxonomies' => array('post_tag'),
 
 	);
 	register_post_type('dest-cpt', $args);
