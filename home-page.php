@@ -262,19 +262,16 @@ Template Post Type: page
 
     <div class="instagram">
         <div class="instagram_slider">
-            <img src="./assets/image/inst1.jpg" alt="">
-            <img src="./assets/image/inst2.jpg" alt="">
-            <img src="./assets/image/inst1.jpg" alt="">
-            <img src="./assets/image/inst2.jpg" alt="">
-            <img src="./assets/image/inst1.jpg" alt="">
-            <img src="./assets/image/inst2.jpg" alt="">
-            <img src="./assets/image/inst2.jpg" alt="">
-            <img src="./assets/image/inst2.jpg" alt="">
-            <img src="./assets/image/inst2.jpg" alt="">
-            <img src="./assets/image/inst2.jpg" alt="">
+            <?php
+            if (have_rows('instagram_repeater', 'option')) :
+                while (have_rows('instagram_repeater', 'option')) : the_row();
+
+                    echo wp_get_attachment_image(get_sub_field('instagram_repeater_image', 'option'), 'custom-insta');
+                endwhile;
+            endif; ?>
         </div>
         <div class="instagram__button">
-            <a class="button" href="#">Follow @ instagram</a>
+            <a class="button" href="<?php echo get_field('instagram_button_link', 'option'); ?>"><?php echo get_field('instagram_button_value', 'option'); ?></a>
         </div>
     </div>
 
@@ -284,13 +281,10 @@ Template Post Type: page
 <section>
     <div class="container">
         <div class="email">
-            <div class="email__head">Join <span>98,641</span> Monthly Readers. Subscribe Today!</div>
-            <div class="email__form">
-                <form action="#">
-                    <input type="email" id="email" name="email" placeholder="Email adress" required>
-                    <input class="button form-input" type="submit" value="Subscribe">
-                </form>
-            </div>
+            <div class="email__head"><?php echo get_field('form_text', 'option'); ?></div>
+            <!-- <div class="email__form"> -->
+            <?php echo do_shortcode('[contact-form-7 id="6be531a" title="Contact form 1"]'); ?>
+            <!-- </div> -->
         </div>
     </div>
 
