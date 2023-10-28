@@ -260,15 +260,37 @@ add_action('init', 'tos_create_location_taxonomy');
 function custom_theme_widgets_init()
 {
 	register_sidebar(array(
-		'name' => __('Footer Content First', 'your-theme-textdomain'),
+		'name' => __('Footer Content First', 'travel-onyx-systems'),
 		'id' => 'footer-content-first',
-		'description' => __('Widgets in this area will be shown in the first column of the footer.', 'your-theme-textdomain'),
+		'description' => __('Widgets in this area will be shown in the first column of the footer.', 'travel-onyx-systems'),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '',
 		'after_title' => '',
 	));
 
-	// ... (остальные виджеты)
+	register_sidebar(array(
+		'name' => __('Footer Content Second', 'travel-onyx-systems'),
+		'id' => 'footer-content-second',
+		'description' => __('Widgets in this area will be shown in the second column of the footer.', 'travel-onyx-systems'),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+	));
+
+	register_sidebar(array(
+		'name' => __('Footer Content Third', 'travel-onyx-systems'),
+		'id' => 'footer-content-third',
+		'description' => __('Widgets in this area will be shown in the third column of the footer.', 'travel-onyx-systems'),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+	));
+
+	register_sidebar(array(
+		'name' => __('Footer Content Fourth', 'travel-onyx-systems'),
+		'id' => 'footer-content-fourth',
+		'description' => __('Widgets in this area will be shown in the fourth column of the footer.', 'travel-onyx-systems'),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+	));
 }
 add_action('widgets_init', 'custom_theme_widgets_init');

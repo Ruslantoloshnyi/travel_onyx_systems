@@ -33,34 +33,16 @@
 		<div class="container">
 			<div class="footer_content">
 				<div class="footer_content_first">
-					<p>We are location independent bloggers, digital influencers, small group tour organizers and
-						world
-						travelers with a
-						serious passion for the sun, the sea and adventure.
-					</p>
-					<p>Eight years and 60-something countries later and we are still on the road.</p>
+					<?php dynamic_sidebar('footer-content-first'); ?>
 				</div>
-				<div>
-					<p>Add: 221B John hope
-						Street, Lekki, Lagos,
-						Nigeria.</p>
-					<p>T: +234 706 507 8544</p>
-					<p>E: info@redexplorers.com</p>
-					<p>W: www. redexplorers.com</p>
+				<div class="footer_content_second">
+					<?php dynamic_sidebar('footer-content-second'); ?>
 				</div>
-				<div>
-					<p>My List</p>
-					<p>My Requests</p>
-					<p>My Credits</p>
-					<p>My Info</p>
-					<p>Contact</p>
+				<div class="footer_content_second">
+					<?php dynamic_sidebar('footer-content-third'); ?>
 				</div>
-				<div>
-					<p>Travel</p>
-					<p>Why Travel</p>
-					<p>Become a Traveler</p>
-					<p>How Its Works</p>
-					<p>Traveling FAQs</p>
+				<div class="footer_content_second">
+					<?php dynamic_sidebar('footer-content-fourth'); ?>
 				</div>
 			</div>
 			<div class="footer_bottom">
@@ -93,9 +75,12 @@
 
 				</div>
 				<div class="footer_bottom_copyright">
-					© 2021 RedExplorers. All rights reserved | Terms |
-					Privacy |
-					Site Map
+					<?php $copyright = get_theme_mod('footer_copyright', '');
+					if ($copyright)
+					{
+						echo esc_html($copyright);
+					}
+					?>
 				</div>
 			</div>
 		</div>

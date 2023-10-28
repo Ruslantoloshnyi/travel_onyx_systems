@@ -73,7 +73,9 @@ Template Post Type: page
                                     <div class="front_aside_slider_block">
                                         <?php the_post_thumbnail('custom-slider', ['class' => 'image-cov']) ?>
                                         <div class="front_aside_slider_block__date"><?php echo get_the_date('F j, Y') ?></div>
-                                        <div class="front_aside_slider_block__name"><?php the_title(); ?></div>
+                                        <a href="">
+                                            <div class="front_aside_slider_block__name"><?php the_title(); ?></div>
+                                        </a>
                                     </div>
                             <?php
                                 endwhile;
@@ -103,7 +105,7 @@ Template Post Type: page
                         ?>
                                 <div class="aside_wrapper">
                                     <div class="front_aside_recent">
-                                        <?php the_post_thumbnail('custom-recent'); ?>
+                                        <a href=""><?php the_post_thumbnail('custom-recent'); ?></a>
                                         <div class="front_aside_recent_content">
                                             <div class="front_aside_recent_content__date"><?php echo get_the_date('F j, Y') ?></div>
                                             <div class="front_aside_recent_content__text"><?php the_title(); ?></div>
@@ -175,7 +177,7 @@ Template Post Type: page
                                 $count++;
                                 $post_class = 'grid-item' . $count;
 
-                                if ($count == 12)
+                                if ($count == 5)
                                 {
                                     if (get_field('banner_image', 'option'))
                                     {
@@ -201,7 +203,7 @@ Template Post Type: page
                                                     <div class="front-card__date"><?php echo get_the_date('F j, Y'); ?></div>
                                                     <div class="front-card__head"><?php the_title(); ?></div>
                                                     <div class="front-card__text"><?php
-                                                                                    if ($count == 1 or $count == 4 or $count == 9)
+                                                                                    if ($count == 1 or $count == 4 or $count == 10)
                                                                                     {
                                                                                         the_excerpt();
                                                                                     }
@@ -282,9 +284,9 @@ Template Post Type: page
     <div class="container">
         <div class="email">
             <div class="email__head"><?php echo get_field('form_text', 'option'); ?></div>
-            <!-- <div class="email__form"> -->
-            <?php echo do_shortcode('[contact-form-7 id="6be531a" title="Contact form 1"]'); ?>
-            <!-- </div> -->
+            <div class="email__form">
+                <?php echo do_shortcode('[contact-form-7 id="6be531a" title="Contact form 1"]'); ?>
+            </div>
         </div>
     </div>
 
