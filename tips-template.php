@@ -4,7 +4,7 @@ Template Name: Tips page
 Template Post Type: page
 */
 
-get_header();
+get_header('tips');
 ?>
 
 <section>

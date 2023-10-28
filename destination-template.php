@@ -4,7 +4,7 @@ Template Name: Destination page
 Template Post Type: page
 */
 
-get_header();
+get_header('dest');
 ?>
 <section>
     <div class="container">
