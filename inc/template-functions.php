@@ -257,6 +257,9 @@ function tos_create_location_taxonomy()
 }
 add_action('init', 'tos_create_location_taxonomy');
 
+/**
+ * Registed widgets.
+ */
 function custom_theme_widgets_init()
 {
 	register_sidebar(array(
@@ -294,3 +297,11 @@ function custom_theme_widgets_init()
 	));
 }
 add_action('widgets_init', 'custom_theme_widgets_init');
+
+/**
+ * change the_excerpt settings
+ */
+add_filter('excerpt_more', function ($more)
+{
+	return ' ...';
+});

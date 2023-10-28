@@ -58,16 +58,16 @@ get_header('tips');
                             <div class="travel_posts_card__title"><?php the_title(); ?></div>
                             <div class="travel_posts_card_bottom">
                                 <div class="travel_posts_card_bottom_block">
-                                    <?php echo wp_get_attachment_image(get_field('tips_card_image_1')); ?>
+                                    <img src="<?php echo get_template_directory_uri() . './assets/image/Marker-travel.png'; ?>" alt="marker">
 
                                     <div>North Pole</div>
                                 </div>
                                 <div class="travel_posts_card_bottom_block">
                                     <?php echo wp_get_attachment_image(get_field('tips_card_image_2')); ?>
-                                    <div><?php echo get_comments_number(); ?> Comment</div>
+                                    <img src="<?php echo get_template_directory_uri() . './assets/image/Communication-travel.png'; ?>" alt="marker">
                                 </div>
                                 <div class="travel_posts_card_bottom_block">
-                                    <?php echo wp_get_attachment_image(get_field('tips_card_image_3')); ?>
+                                    <img src="<?php echo get_template_directory_uri() . './assets/image/Star-travel.png'; ?>" alt="marker">
                                     <div>4.8 of 5</div>
                                 </div>
                             </div>
